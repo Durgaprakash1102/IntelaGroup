@@ -1,0 +1,487 @@
+/* =========================================================
+   INTELA GROUP LLC — HEADER (Redesign)
+   Theme: Navy Blue, Orange & White
+========================================================= */
+
+:root {
+  --ig-navy: #172b4d;
+  --ig-navy-dark: #0b1d3a;
+  --ig-orange: #f59e32;
+  --ig-orange-dark: #e98512;
+  --ig-orange-light: #fff4e6;
+  --ig-text: #172b4d;
+  --ig-muted: #64748b;
+  --ig-border: #e6ebf2;
+  --ig-white: #ffffff;
+  --ig-header-height: 78px;
+  --ig-header-max-width: 1440px;
+  --ig-transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --ig-radius: 12px;
+}
+
+/* =========================================================
+   MAIN HEADER
+========================================================= */
+
+.ig-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: var(--ig-header-height);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(23, 43, 77, 0.06);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset,
+              0 4px 24px rgba(11, 29, 58, 0.06);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+}
+
+.ig-header,
+.ig-header * {
+  box-sizing: border-box;
+}
+
+.ig-header-inner {
+  width: 100%;
+  max-width: var(--ig-header-max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 2vw, 28px);
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.ig-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: transform var(--ig-transition);
+}
+
+.ig-brand:hover {
+  transform: translateY(-1px);
+}
+
+.ig-logo {
+  display: block;
+  width: 158px;
+  height: auto;
+  max-height: 62px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.ig-navigation {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
+}
+
+.ig-nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.4vw, 22px);
+  height: 100%;
+}
+
+.ig-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 4px;
+  color: var(--ig-navy);
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--ig-transition);
+}
+
+.ig-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  height: 2.5px;
+  background: var(--ig-orange);
+  border-radius: 99px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ig-nav-link:hover,
+.ig-nav-link.active {
+  color: var(--ig-orange-dark);
+}
+
+.ig-nav-link:hover::after,
+.ig-nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   DESKTOP CTA
+========================================================= */
+
+.ig-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 18px;
+  color: var(--ig-white);
+  background: linear-gradient(135deg, var(--ig-orange) 0%, var(--ig-orange-dark) 100%);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(245, 158, 50, 0.28);
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    transform var(--ig-transition),
+    box-shadow var(--ig-transition),
+    filter var(--ig-transition);
+}
+
+.ig-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(245, 158, 50, 0.38);
+  filter: brightness(1.05);
+}
+
+.ig-cta i,
+.ig-mobile-cta i {
+  font-size: 12px;
+  transition: transform var(--ig-transition);
+}
+
+.ig-cta:hover i,
+.ig-mobile-cta:hover i {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   FOCUS STATES
+========================================================= */
+
+.ig-cta:focus-visible,
+.ig-nav-link:focus-visible,
+.ig-brand:focus-visible,
+.ig-mobile-cta:focus-visible,
+.ig-menu-button:focus-visible {
+  outline: 3px solid rgba(245, 158, 50, 0.55);
+  outline-offset: 3px;
+}
+
+/* Hide mobile-only elements on desktop */
+.ig-mobile-cta,
+.ig-menu-button,
+.ig-backdrop {
+  display: none;
+}
+
+/* =========================================================
+   TABLET (≤ 1024px)
+========================================================= */
+
+@media (max-width: 1024px) {
+  .ig-logo {
+    width: 140px;
+  }
+
+  .ig-nav-links {
+    gap: 10px;
+  }
+
+  .ig-nav-link {
+    font-size: 13px;
+  }
+
+  .ig-cta {
+    padding: 0 14px;
+    font-size: 12.5px;
+    min-height: 40px;
+  }
+}
+
+/* =========================================================
+   MOBILE (≤ 900px)
+========================================================= */
+
+@media (max-width: 900px) {
+  :root {
+    --ig-header-height: 70px;
+  }
+
+  .ig-header-inner {
+    padding: 0 18px;
+  }
+
+  .ig-logo {
+    width: 138px;
+    max-height: 54px;
+  }
+
+  .ig-cta {
+    display: none;
+  }
+
+  /* Hamburger */
+  .ig-menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5.5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background: var(--ig-navy);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background var(--ig-transition), transform 0.2s ease;
+    z-index: 1002;
+  }
+
+  .ig-menu-button:hover {
+    background: var(--ig-orange-dark);
+  }
+
+  .ig-menu-button:active {
+    transform: scale(0.94);
+  }
+
+  .ig-menu-button span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--ig-white);
+    border-radius: 99px;
+    transform-origin: center;
+    transition:
+      transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.2s ease;
+  }
+
+  /* Morph to X */
+  .ig-menu-button.open span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .ig-menu-button.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .ig-menu-button.open span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* Backdrop */
+  .ig-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 29, 58, 0.45);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+  }
+
+  .ig-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Slide-out panel */
+  .ig-navigation {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 86vw);
+    height: 100%;
+    max-height: 100dvh;
+    padding: calc(var(--ig-header-height) + 20px) 22px 32px;
+    background: var(--ig-white);
+    box-shadow: -12px 0 40px rgba(11, 29, 58, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateX(105%);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0.32s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .ig-navigation.open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .ig-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    height: auto;
+  }
+
+  .ig-nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    height: auto;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 15.5px;
+    white-space: normal;
+    transition: background var(--ig-transition), color var(--ig-transition);
+  }
+
+  .ig-nav-link::after {
+    display: none;
+  }
+
+  .ig-nav-link:hover,
+  .ig-nav-link.active {
+    color: var(--ig-orange-dark);
+    background: var(--ig-orange-light);
+  }
+
+  /* Mobile CTA */
+  .ig-mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 50px;
+    margin-top: 20px;
+    padding: 0 18px;
+    color: var(--ig-white);
+    background: linear-gradient(135deg, var(--ig-orange) 0%, var(--ig-orange-dark) 100%);
+    border-radius: 11px;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(245, 158, 50, 0.3);
+    transition: transform var(--ig-transition), box-shadow var(--ig-transition);
+  }
+
+  .ig-mobile-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(245, 158, 50, 0.38);
+  }
+}
+
+/* =========================================================
+   SMALL PHONES (≤ 400px)
+========================================================= */
+
+@media (max-width: 400px) {
+  :root {
+    --ig-header-height: 64px;
+  }
+
+  .ig-header-inner {
+    padding: 0 14px;
+  }
+
+  .ig-logo {
+    width: 124px;
+    max-height: 48px;
+  }
+
+  .ig-menu-button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ig-navigation {
+    width: min(300px, 90vw);
+    padding: calc(var(--ig-header-height) + 16px) 16px 28px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-header *,
+  .ig-header *::before,
+  .ig-header *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+  .ig-header {
+    position: static;
+    height: auto;
+    background: #fff;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .ig-cta,
+  .ig-menu-button,
+  .ig-mobile-cta,
+  .ig-backdrop {
+    display: none !important;
+  }
+
+  .ig-navigation {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+    visibility: visible !important;
+    height: auto !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .ig-nav-link {
+    color: #000 !important;
+  }
+}

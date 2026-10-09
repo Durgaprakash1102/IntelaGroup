@@ -1,0 +1,384 @@
+/* =========================================================
+   INTELA GROUP LLC — FOOTER (Redesign matching screenshot)
+   Theme: Navy Blue, Orange & White
+========================================================= */
+
+:root {
+  --footer-navy: #1a2b4a;
+  --footer-navy-dark: #15233d;
+  --footer-orange: #f59e32;
+  --footer-orange-hover: #e98512;
+  --footer-white: #ffffff;
+  --footer-muted: rgba(255, 255, 255, 0.82);
+  --footer-border: rgba(255, 255, 255, 0.12);
+  --footer-transition: 0.25s ease;
+}
+
+/* Main footer */
+
+.ig-footer {
+  width: 100%;
+  overflow: hidden;
+  color: var(--footer-white);
+  background: var(--footer-navy);
+  font-family: Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+.ig-footer,
+.ig-footer * {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.footer-main {
+  padding: 56px 24px 48px;
+  background: var(--footer-navy);
+}
+
+.footer-main-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.35fr 0.75fr 1.1fr 1fr;
+  gap: 40px 36px;
+  align-items: start;
+}
+
+/* Brand + Quote */
+
+.footer-brand {
+  min-width: 0;
+}
+
+.footer-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 22px;
+  padding: 6px 10px;
+  background: var(--footer-white);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform var(--footer-transition);
+}
+
+.footer-brand-logo:hover {
+  transform: translateY(-2px);
+}
+
+.footer-brand-logo img {
+  display: block;
+  width: 168px;
+  height: auto;
+  max-height: 62px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.footer-quote {
+  margin: 0;
+  max-width: 340px;
+  color: var(--footer-muted);
+  font-size: 13.5px;
+  line-height: 1.75;
+  font-style: italic;
+}
+
+/* Column titles */
+
+.footer-col-title {
+  margin: 0 0 20px;
+  color: var(--footer-orange);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Lists */
+
+.footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.footer-list a {
+  color: var(--footer-muted);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color var(--footer-transition);
+}
+
+.footer-list a:hover {
+  color: var(--footer-orange);
+}
+
+/* Contact column */
+
+.footer-contact-list {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--footer-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.footer-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  margin-top: 2px;
+  color: var(--footer-orange);
+  font-size: 15px;
+}
+
+.footer-contact-list a {
+  color: var(--footer-muted);
+  text-decoration: none;
+  transition: color var(--footer-transition);
+}
+
+.footer-contact-list a:hover {
+  color: var(--footer-orange);
+}
+
+/* Social icons */
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: var(--footer-white);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  font-size: 14px;
+  text-decoration: none;
+  transition:
+    background var(--footer-transition),
+    color var(--footer-transition),
+    transform var(--footer-transition);
+}
+
+.footer-social a:hover {
+  background: var(--footer-orange);
+  color: var(--footer-white);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   BOTTOM BAR (Orange)
+========================================================= */
+
+.footer-bottom {
+  padding: 16px 24px;
+  background: var(--footer-orange);
+  color: var(--footer-white);
+}
+
+.footer-bottom-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;   /* centered */
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* =========================================================
+   MOBILE adjustments (keep centered)
+========================================================= */
+
+@media (max-width: 640px) {
+  .footer-bottom {
+    padding: 18px;
+  }
+
+  .footer-bottom-inner {
+    font-size: 12.5px;
+  }
+}
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.footer-bottom-links a {
+  color: var(--footer-white);
+  text-decoration: none;
+  transition: opacity var(--footer-transition);
+}
+
+.footer-bottom-links a:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+/* =========================================================
+   TABLET (≤ 1024px)
+========================================================= */
+
+@media (max-width: 1024px) {
+  .footer-main {
+    padding: 48px 22px 40px;
+  }
+
+  .footer-main-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 28px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-quote {
+    max-width: 520px;
+  }
+}
+
+/* =========================================================
+   MOBILE (≤ 640px)
+========================================================= */
+
+@media (max-width: 640px) {
+  .footer-main {
+    padding: 40px 18px 36px;
+  }
+
+  .footer-main-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-brand-logo img {
+    width: 150px;
+  }
+
+  .footer-quote {
+    max-width: 100%;
+    font-size: 13px;
+  }
+
+  .footer-col-title {
+    margin-bottom: 14px;
+    font-size: 16px;
+  }
+
+  .footer-list {
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    padding: 18px;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12.5px;
+  }
+
+  .footer-bottom-links {
+    gap: 16px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES (≤ 380px)
+========================================================= */
+
+@media (max-width: 380px) {
+  .footer-main,
+  .footer-bottom {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .footer-brand-logo img {
+    width: 136px;
+  }
+
+  .footer-social a {
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.ig-footer a:focus-visible {
+  outline: 3px solid var(--footer-orange);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-footer *,
+  .ig-footer *::before,
+  .ig-footer *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+  .ig-footer {
+    color: #000;
+    background: #fff;
+  }
+
+  .footer-main,
+  .footer-bottom {
+    background: #fff;
+    color: #000;
+  }
+
+  .footer-col-title,
+  .footer-list a,
+  .footer-contact-list a,
+  .footer-quote {
+    color: #000 !important;
+  }
+
+  .footer-social {
+    display: none;
+  }
+}

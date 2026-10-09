@@ -1,0 +1,587 @@
+
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FaArrowRight,
+  FaBullseye,
+  FaEye,
+  FaHandshake,
+  FaLightbulb,
+  FaShieldAlt,
+  FaUsers,
+  FaAward,
+  FaQuoteLeft,
+  FaCheck,
+  FaStar,
+  FaHeart,
+  FaCompass,
+} from "react-icons/fa";
+import "../css/About.css";
+
+const values = [
+  {
+    icon: <FaShieldAlt />,
+    number: "01",
+    title: "Integrity",
+    description:
+      "We value honest communication, professional conduct, and relationships built on trust.",
+  },
+  {
+    icon: <FaLightbulb />,
+    number: "02",
+    title: "Innovation",
+    description:
+      "We encourage new ideas and practical thinking that help organizations adapt and move forward.",
+  },
+  {
+    icon: <FaHandshake />,
+    number: "03",
+    title: "Collaboration",
+    description:
+      "We believe better outcomes begin when people share knowledge, align expectations, and work together.",
+  },
+  {
+    icon: <FaAward />,
+    number: "04",
+    title: "Excellence",
+    description:
+      "We aim for dependable service, attention to detail, and continuous improvement in our work.",
+  },
+];
+
+const principles = [
+  {
+    icon: <FaUsers />,
+    title: "People come first",
+    description:
+      "We value the people behind every business relationship and the perspectives they bring.",
+  },
+  {
+    icon: <FaCompass />,
+    title: "Understand before acting",
+    description:
+      "We believe that understanding business goals and expectations is essential to meaningful collaboration.",
+  },
+  {
+    icon: <FaStar />,
+    title: "Consistency builds trust",
+    description:
+      "Clear communication, reliability, and professional conduct help create lasting relationships.",
+  },
+];
+
+const clientLogos = [
+  { name: "Client Logo 01", image: "/images/clients/client-01.png" },
+  { name: "Client Logo 02", image: "/images/clients/client-02.png" },
+  { name: "Client Logo 03", image: "/images/clients/client-03.png" },
+  { name: "Client Logo 04", image: "/images/clients/client-04.png" },
+  { name: "Client Logo 05", image: "/images/clients/client-05.png" },
+  { name: "Client Logo 06", image: "/images/clients/client-06.png" },
+];
+
+const teamMembers = [
+  {
+    name: "Leadership Name",
+    role: "Leadership / Management",
+    image: "/images/team/leader.jpg",
+  },
+  {
+    name: "Team Member Name",
+    role: "Team Designation",
+    image: "/images/team/member-01.jpg",
+  },
+  {
+    name: "Team Member Name",
+    role: "Team Designation",
+    image: "/images/team/member-02.jpg",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Add an approved client testimonial describing their experience working with Intela Group.",
+    name: "Client Name",
+    role: "Client Designation",
+  },
+  {
+    quote:
+      "Add a second verified testimonial that highlights a genuine client experience or partnership.",
+    name: "Client Name",
+    role: "Client Designation",
+  },
+];
+
+function Heading({ eyebrow, title, description, centered = false }) {
+  return (
+    <div className={`about-heading ${centered ? "is-centered" : ""}`}>
+      <span className="about-eyebrow">{eyebrow}</span>
+      <h2>{title}</h2>
+      {description && <p>{description}</p>}
+    </div>
+  );
+}
+
+function ImagePlaceholder({ label, icon = <FaUsers /> }) {
+  return (
+    <div className="about-image-placeholder">
+      {icon}
+      <span>{label}</span>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <main className="about-page">
+
+      {/* 1. Hero */}
+      <section className="about-hero">
+        <div className="about-container about-hero-grid">
+          <div className="about-hero-copy">
+            <div className="about-kicker">
+              <span />
+              GET TO KNOW INTELA
+            </div>
+
+            <h1>
+              People. Purpose.
+              <span> Possibilities.</span>
+            </h1>
+
+            <p>
+              We are Intela Group LLC — a team of IT professionals focused on
+              service excellence, collaboration, and helping businesses move
+              forward with confidence.
+            </p>
+
+            <div className="about-hero-buttons">
+              <a href="#our-story" className="about-btn about-btn-orange">
+                Discover Our Story <FaArrowRight />
+              </a>
+              <Link to="/contact" className="about-btn about-btn-outline">
+                Let's Connect
+              </Link>
+            </div>
+
+            <div className="about-hero-note">
+              <span className="about-note-icon"><FaCheck /></span>
+              <span>Collaboration at the heart of what we do</span>
+            </div>
+          </div>
+
+          <div className="about-hero-art">
+            <div className="about-hero-photo">
+              <img
+                src="/images/about/company-team.jpg"
+                alt="Intela Group team"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+              <ImagePlaceholder label="Add Company / Team Image" />
+              <div className="about-photo-tag">
+                <span className="about-tag-dot" />
+                <span>Intela Group LLC</span>
+              </div>
+            </div>
+
+            <div className="about-hero-floating">
+              <span className="about-floating-icon"><FaHandshake /></span>
+              <div>
+                <strong>Stronger Together</strong>
+                <span>Built through collaboration</span>
+              </div>
+            </div>
+
+            <div className="about-hero-outline" />
+            <div className="about-hero-orange-dot" />
+          </div>
+        </div>
+
+        <div className="about-hero-bottom-line" />
+      </section>
+
+      {/* 2. Brand introduction */}
+      <section className="about-intro section-space">
+        <div className="about-container about-intro-grid">
+          <div className="about-intro-label">
+            <span className="about-eyebrow">WHO WE ARE</span>
+            <h2>
+              A team that believes in the power of people and technology.
+            </h2>
+          </div>
+
+          <div className="about-intro-text">
+            <p>
+              Intela Group LLC brings together IT professionals with a shared
+              focus on service delivery, business collaboration, and continuous
+              improvement.
+            </p>
+            <p>
+              We recognize that every organization has its own goals,
+              challenges, and expectations. That is why we value listening,
+              understanding requirements, and building professional
+              relationships around shared objectives.
+            </p>
+            <p>
+              Our identity is grounded in the belief that technology,
+              talented people, and a collaborative mindset can help
+              organizations create new possibilities.
+            </p>
+            <a href="#our-values" className="about-text-link">
+              Explore what guides us <FaArrowRight />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Company story */}
+      <section className="about-story section-space" id="our-story">
+        <div className="about-container about-story-grid">
+          <div className="about-story-visual">
+            <div className="about-story-image">
+              <img
+                src="/images/about/our-story.jpg"
+                alt="Intela Group workplace"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+              <ImagePlaceholder label="Company Story / Workplace Image" />
+            </div>
+            <div className="about-story-accent" />
+            <div className="about-story-caption">
+              <span>INTELA GROUP</span>
+              <strong>Growing through collaboration</strong>
+            </div>
+          </div>
+
+          <div className="about-story-copy">
+            <span className="about-eyebrow">OUR STORY</span>
+            <h2>
+              Built around a simple idea: progress happens when people work
+              together.
+            </h2>
+            <p>
+              Businesses operate in a changing environment where technology,
+              people, and business priorities must work together. We believe
+              meaningful progress starts with understanding those priorities.
+            </p>
+            <p>
+              Intela's approach is centered on professional relationships,
+              thoughtful collaboration, and a commitment to service
+              excellence. We aim to create an environment where communication
+              is clear, expectations are understood, and people can work
+              toward common goals.
+            </p>
+            <div className="about-story-highlight">
+              <span className="about-highlight-bar" />
+              <p>
+                We see every relationship as an opportunity to learn,
+                collaborate, and create meaningful value.
+              </p>
+            </div>
+            <p className="about-editor-note">
+              Add the verified company founding story and milestones here
+              when those details are available.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Mission and vision */}
+      <section className="about-mission section-space">
+        <div className="about-container">
+          <div className="about-mission-heading">
+            <Heading
+              eyebrow="OUR PURPOSE"
+              title="What drives us forward"
+              description="Our purpose shapes the way we approach relationships, professional responsibilities, and future opportunities."
+              centered
+            />
+          </div>
+
+          <div className="about-mission-grid">
+            <article className="about-mission-card">
+              <div className="about-mission-top">
+                <span className="about-mission-icon"><FaBullseye /></span>
+                <span className="about-mission-number">01</span>
+              </div>
+              <span className="about-card-eyebrow">OUR MISSION</span>
+              <h3>Make collaboration meaningful.</h3>
+              <p>
+                To support business objectives through professional
+                collaboration, service excellence, and a commitment to
+                understanding the needs of the organizations we work with.
+              </p>
+            </article>
+
+            <article className="about-mission-card about-mission-dark">
+              <div className="about-mission-top">
+                <span className="about-mission-icon"><FaEye /></span>
+                <span className="about-mission-number">02</span>
+              </div>
+              <span className="about-card-eyebrow">OUR VISION</span>
+              <h3>Build lasting possibilities.</h3>
+              <p>
+                To continue growing as a collaborative organization that
+                values people, embraces progress, and builds lasting
+                professional relationships.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Values */}
+      <section className="about-values section-space" id="our-values">
+        <div className="about-container">
+          <Heading
+            eyebrow="OUR CORE VALUES"
+            title="The principles behind our identity"
+            description="Our values reflect the standards we strive to bring to our work, relationships, and everyday decisions."
+            centered
+          />
+
+          <div className="about-values-grid">
+            {values.map((value) => (
+              <article className="about-value-card" key={value.number}>
+                <div className="about-value-header">
+                  <span className="about-value-icon">{value.icon}</span>
+                  <span className="about-value-number">{value.number}</span>
+                </div>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
+                <span className="about-value-bottom-line" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Our philosophy */}
+      <section className="about-philosophy section-space">
+        <div className="about-container about-philosophy-grid">
+          <div className="about-philosophy-copy">
+            <span className="about-eyebrow">OUR PHILOSOPHY</span>
+            <h2>
+              The way we work matters as much as the work itself.
+            </h2>
+            <p>
+              Strong professional relationships grow through listening,
+              consistency, shared understanding, and mutual respect.
+              These principles shape how we approach collaboration.
+            </p>
+            <Link to="/contact" className="about-text-link">
+              Start a conversation <FaArrowRight />
+            </Link>
+          </div>
+
+          <div className="about-principles">
+            {principles.map((item, index) => (
+              <article className="about-principle" key={item.title}>
+                <div className="about-principle-icon">{item.icon}</div>
+                <div className="about-principle-copy">
+                  <span>PRINCIPLE 0{index + 1}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+                <FaArrowRight className="about-principle-arrow" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Our people */}
+      <section className="about-people section-space">
+        <div className="about-container">
+          <div className="about-people-heading">
+            <Heading
+              eyebrow="OUR PEOPLE"
+              title="Meet the people behind Intela"
+              description="Showcase the individuals who help shape the organization, its culture, and its professional relationships."
+            />
+            <p className="about-people-side-note">
+              People are at the center of every successful collaboration.
+            </p>
+          </div>
+
+          <div className="about-team-grid">
+            {teamMembers.map((member, index) => (
+              <article className="about-team-card" key={`${member.role}-${index}`}>
+                <div className="about-team-image">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <ImagePlaceholder label="Team Photo Placeholder" />
+                  <span className="about-team-index">0{index + 1}</span>
+                </div>
+                <div className="about-team-details">
+                  <h3>{member.name}</h3>
+                  <p>{member.role}</p>
+                  <span>Replace with verified team information</span>
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="about-placeholder-note">
+            Add approved employee photographs, names, roles, and short
+            biographies before publishing this section.
+          </p>
+        </div>
+      </section>
+
+      {/* 8. Clients and partners */}
+      <section className="about-clients section-space" id="our-clients">
+        <div className="about-container">
+          <div className="about-clients-top">
+            <div>
+              <span className="about-eyebrow">OUR CLIENTS & PARTNERS</span>
+              <h2>
+                Relationships that bring people and businesses together.
+              </h2>
+            </div>
+            <p>
+              Use this section to showcase verified client and partner
+              relationships that reflect Intela Group's professional network.
+            </p>
+          </div>
+
+          <div className="about-client-grid">
+            {clientLogos.map((client) => (
+              <div className="about-client-card" key={client.name}>
+                <div className="about-client-placeholder">
+                  <span className="about-client-mark">I</span>
+                  <span>{client.name}</span>
+                </div>
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                  onLoad={(e) => {
+                    e.currentTarget.style.display = "block";
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
+          <p className="about-placeholder-note">
+            Replace the six placeholders with approved logos and accurate
+            client names. Do not imply a partnership without authorization.
+          </p>
+        </div>
+      </section>
+
+      {/* 9. Client voices */}
+      <section className="about-testimonials section-space">
+        <div className="about-container">
+          <Heading
+            eyebrow="CLIENT PERSPECTIVES"
+            title="The value of working together"
+            description="Use genuine client feedback to communicate the experience of working with Intela Group."
+            centered
+          />
+
+          <div className="about-testimonial-grid">
+            {testimonials.map((item, index) => (
+              <article className="about-testimonial-card" key={item.name + index}>
+                <div className="about-testimonial-top">
+                  <FaQuoteLeft />
+                  <div className="about-stars" aria-label="Rating placeholder">
+                    <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
+                  </div>
+                </div>
+                <p className="about-testimonial-quote">“{item.quote}”</p>
+                <div className="about-testimonial-person">
+                  <span className="about-testimonial-avatar">
+                    {item.name.charAt(0)}
+                  </span>
+                  <div>
+                    <strong>{item.name}</strong>
+                    <span>{item.role}</span>
+                  </div>
+                </div>
+                <span className="about-testimonial-index">0{index + 1}</span>
+              </article>
+            ))}
+          </div>
+
+          <p className="about-placeholder-note">
+            These are content placeholders, not real testimonials. Replace
+            them with approved client quotations and verified attribution.
+          </p>
+        </div>
+      </section>
+
+      {/* 10. Culture and careers */}
+      <section className="about-culture section-space">
+        <div className="about-container about-culture-grid">
+          <div className="about-culture-visual">
+            <img
+              src="/images/about/team-culture.jpg"
+              alt="Intela Group team culture"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
+            <ImagePlaceholder label="Team Culture Image" />
+            <div className="about-culture-badge">
+              <FaHeart />
+              <span>People make the difference</span>
+            </div>
+          </div>
+
+          <div className="about-culture-copy">
+            <span className="about-eyebrow">LIFE AT INTELA</span>
+            <h2>
+              A culture shaped by people, learning, and collaboration.
+            </h2>
+            <p>
+              We believe a positive professional environment encourages
+              knowledge-sharing, respectful communication, and opportunities
+              to learn from one another.
+            </p>
+            <p>
+              Our people section is an opportunity to share the real
+              experiences, stories, and achievements of the Intela team.
+            </p>
+            <Link to="/careers" className="about-btn about-btn-orange">
+              Explore Careers <FaArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Closing CTA */}
+      <section className="about-closing">
+        <div className="about-container about-closing-inner">
+          <div className="about-closing-decoration" />
+          <div className="about-closing-copy">
+            <span className="about-eyebrow">LET'S CONNECT</span>
+            <h2>Good relationships begin with a conversation.</h2>
+            <p>
+              Discover more about Intela Group and start a conversation
+              with our team.
+            </p>
+          </div>
+          <Link to="/contact" className="about-btn about-btn-white">
+            Contact Intela <FaArrowRight />
+          </Link>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export default About;
