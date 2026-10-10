@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
@@ -29,7 +28,6 @@ import {
   FaDraftingCompass,
   FaVial,
   FaRocket,
-  FaChevronDown,
 } from "react-icons/fa";
 
 import "../css/Home.css";
@@ -169,51 +167,45 @@ const industries = [
     title: "Banking & Financial Services",
     description:
       "Business applications, workflow improvements, and technology talent.",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85",
-    alt: "Modern financial district office buildings",
+    image: "", // placeholder – add your image path
+    alt: "Banking & Financial Services",
   },
   {
     icon: <FaHospital />,
     title: "Healthcare & Life Sciences",
     description: "Operational software, data workflows, and IT support.",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
-    alt: "Healthcare professionals working in a medical environment",
+    image: "", // placeholder – add your image path
+    alt: "Healthcare & Life Sciences",
   },
   {
     icon: <FaIndustry />,
     title: "Manufacturing & Automotive",
     description:
       "Process digitization, system integration, and operational applications.",
-    image:
-      "https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=900&q=85",
-    alt: "Industrial manufacturing facility",
+    image: "", // placeholder – add your image path
+    alt: "Manufacturing & Automotive",
   },
   {
     icon: <FaLeaf />,
     title: "Energy & Utilities",
     description: "Digital workflows, reporting solutions, and technology services.",
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=900&q=85",
-    alt: "Renewable energy infrastructure",
+    image: "", // placeholder – add your image path
+    alt: "Energy & Utilities",
   },
   {
     icon: <FaServer />,
     title: "Information Technology",
     description: "Software engineering, IT consulting, and specialist talent.",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=85",
-    alt: "Enterprise server infrastructure",
+    image: "", // placeholder – add your image path
+    alt: "Information Technology",
   },
   {
     icon: <FaBriefcase />,
     title: "Professional Services",
     description:
       "Business applications, automation opportunities, and workforce solutions.",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85",
-    alt: "Professionals collaborating in a modern office",
+    image: "", // placeholder – add your image path
+    alt: "Professional Services",
   },
 ];
 
@@ -322,45 +314,7 @@ const commitments = [
   },
 ];
 
-const faqs = [
-  {
-    question: "What software development services does Intela Group offer?",
-    answer:
-      "Our proposed core offerings include custom software, web and application development, application maintenance, IT consulting, and technology talent solutions. Contact our team to discuss the services relevant to your requirements.",
-  },
-  {
-    question: "Can you develop software tailored to our business?",
-    answer:
-      "A project can begin with a discussion of your business goals, users, requirements, integrations, timeline, and budget, followed by a proposed scope and delivery approach.",
-  },
-  {
-    question: "Can you support an existing application?",
-    answer:
-      "Application support can include troubleshooting, bug fixes, enhancements, integrations, and maintenance, depending on the application's technology stack and the agreed scope.",
-  },
-  {
-    question: "Do you provide cloud and DevOps services?",
-    answer:
-      "Where included in our delivery offering, services can cover CI/CD implementation, deployment automation, cloud infrastructure, and monitoring.",
-  },
-  {
-    question: "Do you provide IT staffing services?",
-    answer:
-      "Staffing services can support contract, contract-to-hire, and direct-hire technology requirements, depending on the engagement.",
-  },
-  {
-    question: "How do we start a project with Intela Group?",
-    answer:
-      "Contact our team with a brief description of your requirements. We can discuss your goals, scope, expected timeline, and the next steps.",
-  },
-];
-
-function SectionHeading({
-  eyebrow,
-  title,
-  highlight,
-  description,
-}) {
+function SectionHeading({ eyebrow, title, highlight, description }) {
   return (
     <div className="home-section-heading">
       <span className="home-eyebrow">{eyebrow}</span>
@@ -373,92 +327,63 @@ function SectionHeading({
 }
 
 function Home() {
-  const [openFaq, setOpenFaq] = useState(0);
-
   return (
     <main className="intela-home">
-      {/* HERO */}
+      {/* HERO – banner background only */}
       <section className="home-hero" id="home">
-        <div className="home-container home-hero-grid">
+        <div className="home-hero-bg" />
+        <div className="home-hero-overlay" />
+        <div className="home-container home-hero-inner">
           <div className="home-hero-content">
-            <span className="home-eyebrow">
-              SOFTWARE DEVELOPMENT <i /> IT SOLUTIONS <i /> DIGITAL
-              TRANSFORMATION
+            <span className="home-eyebrow home-eyebrow-light">
+              PEOPLE <i /> TECHNOLOGY <i /> PROGRESS
             </span>
 
             <h1>
-              Build Smarter Software.
-              <span>Create Lasting Business Impact.</span>
+              Technology Solutions
+              <span> for a Stronger Tomorrow</span>
             </h1>
 
             <p>
               Intela Group LLC helps businesses turn ideas into reliable
               digital solutions through custom software development,
               application modernization, cloud technologies, intelligent
-              automation, and expert IT services.
-            </p>
-
-            <p className="home-hero-subtext">
-              From strategy and development to deployment and ongoing support,
-              we help organizations solve complex challenges and move forward
-              with confidence.
+              automation, and expert IT services — backed by{" "}
+              <strong>10+ years of experience</strong>.
             </p>
 
             <div className="home-hero-actions">
-              <Link to="/services" className="home-btn home-btn-primary">
-                Explore Our Services <FaArrowRight />
+              <Link to="/contact" className="home-btn home-btn-primary">
+                Discuss Your Needs <FaArrowRight />
               </Link>
-              <Link to="/contact" className="home-btn home-btn-outline">
-                Discuss Your Project
+              <Link to="/services" className="home-btn home-btn-outline-light">
+                Explore Services
               </Link>
             </div>
 
-            <div className="home-hero-note">
-              <span className="home-hero-note-icon">
+            <div className="home-hero-trust">
+              <div className="home-hero-trust-item">
+                <FaShieldAlt />
+                <span>Trusted Partnerships</span>
+              </div>
+              <div className="home-hero-trust-item">
                 <FaCheckCircle />
-              </span>
-              <span>
-                Technology solutions aligned with your business goals.
-              </span>
-            </div>
-          </div>
-
-          <div className="home-hero-visual">
-            <div className="home-hero-orange-shape" />
-            <div className="home-hero-image-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=90"
-                alt="Technology professionals collaborating on business and software solutions"
-                fetchPriority="high"
-              />
-            </div>
-
-            <div className="home-floating-card home-floating-card-top">
-              <span className="home-floating-icon">
-                <FaCode />
-              </span>
-              <div>
-                <strong>Software Engineering</strong>
-                <span>Built around your needs</span>
+                <span>Quality Delivery</span>
+              </div>
+              <div className="home-hero-trust-item">
+                <FaBullseye />
+                <span>Business Focused</span>
+              </div>
+              <div className="home-hero-trust-item">
+                <FaBriefcase />
+                <span>10+ Years Experience</span>
               </div>
             </div>
-
-            <div className="home-floating-card home-floating-card-bottom">
-              <span className="home-floating-icon">
-                <FaCloud />
-              </span>
-              <div>
-                <strong>Technology That Scales</strong>
-                <span>Designed for what's next</span>
-              </div>
-            </div>
-
-            <div className="home-hero-dots" />
           </div>
         </div>
       </section>
 
-      {/* CAPABILITIES */}
+      {/* CAPABILITIES BAR */}
       <section className="home-capabilities">
         <div className="home-container home-capabilities-grid">
           {capabilities.map((item) => (
@@ -486,23 +411,25 @@ function Home() {
           <div className="home-services-grid">
             {services.map((service, index) => (
               <article className="home-service-card" key={service.title}>
-                <div className="home-service-card-top">
-                  <span
-                    className={`home-service-icon home-service-icon-${index % 2}`}
-                  >
-                    {service.icon}
-                  </span>
-                  <span className="home-card-arrow">
-                    <FaExternalLinkAlt />
-                  </span>
+                <div className="home-service-card-inner">
+                  <div className="home-service-card-top">
+                    <span
+                      className={`home-service-icon home-service-icon-${index % 2}`}
+                    >
+                      {service.icon}
+                    </span>
+                    <span className="home-card-arrow">
+                      <FaExternalLinkAlt />
+                    </span>
+                  </div>
+
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+
+                  <Link to={service.link} className="home-text-link">
+                    Learn More <FaArrowRight />
+                  </Link>
                 </div>
-
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-
-                <Link to={service.link} className="home-text-link">
-                  Learn More <FaArrowRight />
-                </Link>
               </article>
             ))}
           </div>
@@ -528,10 +455,12 @@ function Home() {
           <div className="home-process-grid">
             {processSteps.map((step) => (
               <article className="home-process-card" key={step.number}>
-                <div className="home-process-number">{step.number}</div>
-                <span className="home-process-icon">{step.icon}</span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
+                <div className="home-process-card-inner">
+                  <div className="home-process-number">{step.number}</div>
+                  <span className="home-process-icon">{step.icon}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -558,15 +487,14 @@ function Home() {
 
           <div className="home-technology-grid">
             {technologies.map((technology) => (
-              <article
-                className="home-technology-card"
-                key={technology.title}
-              >
-                <span className="home-technology-icon">
-                  {technology.icon}
-                </span>
-                <h3>{technology.title}</h3>
-                <p>{technology.description}</p>
+              <article className="home-technology-card" key={technology.title}>
+                <div className="home-technology-card-inner">
+                  <span className="home-technology-icon">
+                    {technology.icon}
+                  </span>
+                  <h3>{technology.title}</h3>
+                  <p>{technology.description}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -586,11 +514,18 @@ function Home() {
           <div className="home-industries-grid">
             {industries.map((industry) => (
               <article className="home-industry-card" key={industry.title}>
-                <img
-                  src={industry.image}
-                  alt={industry.alt}
-                  loading="lazy"
-                />
+                {industry.image ? (
+                  <img
+                    src={industry.image}
+                    alt={industry.alt}
+                    loading="lazy"
+                  />
+                ) : (
+                  <div
+                    className="home-industry-placeholder"
+                    aria-hidden="true"
+                  />
+                )}
                 <div className="home-industry-overlay" />
                 <div className="home-industry-content">
                   <span className="home-industry-icon">{industry.icon}</span>
@@ -710,12 +645,14 @@ function Home() {
           <div className="home-engagement-grid">
             {engagementModels.map((model) => (
               <article className="home-engagement-card" key={model.title}>
-                <span className="home-engagement-icon">{model.icon}</span>
-                <h3>{model.title}</h3>
-                <p>{model.description}</p>
-                <Link to="/contact" className="home-text-link">
-                  Let's Discuss <FaArrowRight />
-                </Link>
+                <div className="home-engagement-card-inner">
+                  <span className="home-engagement-icon">{model.icon}</span>
+                  <h3>{model.title}</h3>
+                  <p>{model.description}</p>
+                  <Link to="/contact" className="home-text-link">
+                    Let&apos;s Discuss <FaArrowRight />
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
@@ -735,66 +672,13 @@ function Home() {
           <div className="home-commitment-grid">
             {commitments.map((item) => (
               <article className="home-commitment-card" key={item.title}>
-                <span className="home-commitment-icon">{item.icon}</span>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <div className="home-commitment-card-inner">
+                  <span className="home-commitment-icon">{item.icon}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
               </article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="home-section home-faq" id="faq">
-        <div className="home-container home-faq-layout">
-          <div className="home-faq-intro">
-            <span className="home-eyebrow">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2>
-              Questions About Our
-              <span> Technology Services?</span>
-            </h2>
-            <p>
-              Learn more about our services, development approach, and how to
-              start a conversation about your next project.
-            </p>
-            <Link to="/contact" className="home-text-link">
-              Ask Us a Question <FaArrowRight />
-            </Link>
-          </div>
-
-          <div className="home-faq-list">
-            {faqs.map((faq, index) => {
-              const isOpen = openFaq === index;
-
-              return (
-                <div
-                  className={`home-faq-item${isOpen ? " is-open" : ""}`}
-                  key={faq.question}
-                >
-                  <button
-                    type="button"
-                    className="home-faq-question"
-                    aria-expanded={isOpen}
-                    aria-controls={`home-faq-answer-${index}`}
-                    onClick={() => setOpenFaq(isOpen ? -1 : index)}
-                  >
-                    <span>{faq.question}</span>
-                    <FaChevronDown className="home-faq-chevron" />
-                  </button>
-
-                  {isOpen && (
-                    <div
-                      className="home-faq-answer"
-                      id={`home-faq-answer-${index}`}
-                    >
-                      <p>{faq.answer}</p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -803,8 +687,8 @@ function Home() {
       <section className="home-final-cta">
         <div className="home-container home-final-cta-inner">
           <div className="home-final-cta-content">
-            <span className="home-eyebrow">
-              LET'S BUILD SOMETHING BETTER
+            <span className="home-eyebrow home-eyebrow-light">
+              LET&apos;S BUILD SOMETHING BETTER
             </span>
             <h2>
               Have a Software Project
@@ -812,7 +696,7 @@ function Home() {
             </h2>
             <p>
               Tell us about your business challenge, product idea, or
-              technology requirements. Let's explore a solution that fits your
+              technology requirements. Let&apos;s explore a solution that fits your
               goals.
             </p>
 

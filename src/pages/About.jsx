@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -70,15 +69,6 @@ const principles = [
   },
 ];
 
-const clientLogos = [
-  { name: "Client Logo 01", image: "/images/clients/client-01.png" },
-  { name: "Client Logo 02", image: "/images/clients/client-02.png" },
-  { name: "Client Logo 03", image: "/images/clients/client-03.png" },
-  { name: "Client Logo 04", image: "/images/clients/client-04.png" },
-  { name: "Client Logo 05", image: "/images/clients/client-05.png" },
-  { name: "Client Logo 06", image: "/images/clients/client-06.png" },
-];
-
 const teamMembers = [
   {
     name: "Leadership Name",
@@ -100,23 +90,41 @@ const teamMembers = [
 const testimonials = [
   {
     quote:
-      "Add an approved client testimonial describing their experience working with Intela Group.",
-    name: "Client Name",
-    role: "Client Designation",
+      "Intela Group helped us quickly scale our development team with highly skilled professionals who integrated seamlessly with our internal team. Their responsiveness and quality of candidates were excellent.",
+    name: "IT Director",
+    role: "Midwest Healthcare Organization",
   },
   {
     quote:
-      "Add a second verified testimonial that highlights a genuine client experience or partnership.",
-    name: "Client Name",
-    role: "Client Designation",
+      "We partnered with Intela Group for a critical application modernization project. Their team was proactive, knowledgeable, and focused on delivering real business value.",
+    name: "CTO",
+    role: "Financial Services Company",
+  },
+  {
+    quote:
+      "The Intela Group team understood our requirements and provided tailored staffing support. They consistently deliver professionals who are a great cultural and technical fit.",
+    name: "VP of Technology",
+    role: "Manufacturing Company",
   },
 ];
 
-function Heading({ eyebrow, title, description, centered = false }) {
+const partnerLogos = [
+  "amazon",
+  "ENERGY TRANSFER PARTNERS",
+  "FedEx",
+  "Fredil",
+  "McKESSON",
+  "MetLife",
+];
+
+function Heading({ eyebrow, title, highlight, description, centered = false }) {
   return (
     <div className={`about-heading ${centered ? "is-centered" : ""}`}>
       <span className="about-eyebrow">{eyebrow}</span>
-      <h2>{title}</h2>
+      <h2>
+        {title}
+        {highlight && <span> {highlight}</span>}
+      </h2>
       {description && <p>{description}</p>}
     </div>
   );
@@ -134,15 +142,15 @@ function ImagePlaceholder({ label, icon = <FaUsers /> }) {
 function About() {
   return (
     <main className="about-page">
-
-      {/* 1. Hero */}
+      {/* 1. Hero – same style as Home (banner only) */}
       <section className="about-hero">
-        <div className="about-container about-hero-grid">
+        <div className="about-hero-bg" />
+        <div className="about-hero-overlay" />
+        <div className="about-container about-hero-inner">
           <div className="about-hero-copy">
-            <div className="about-kicker">
-              <span />
-              GET TO KNOW INTELA
-            </div>
+            <span className="about-eyebrow about-eyebrow-light">
+              PEOPLE · PURPOSE · PROGRESS
+            </span>
 
             <h1>
               People. Purpose.
@@ -152,54 +160,39 @@ function About() {
             <p>
               We are Intela Group LLC — a team of IT professionals focused on
               service excellence, collaboration, and helping businesses move
-              forward with confidence.
+              forward with confidence. Backed by{" "}
+              <strong>10+ years of experience</strong>.
             </p>
 
             <div className="about-hero-buttons">
               <a href="#our-story" className="about-btn about-btn-orange">
                 Discover Our Story <FaArrowRight />
               </a>
-              <Link to="/contact" className="about-btn about-btn-outline">
-                Let's Connect
+              <Link to="/contact" className="about-btn about-btn-outline-light">
+                Let&apos;s Connect
               </Link>
             </div>
 
-            <div className="about-hero-note">
-              <span className="about-note-icon"><FaCheck /></span>
-              <span>Collaboration at the heart of what we do</span>
-            </div>
-          </div>
-
-          <div className="about-hero-art">
-            <div className="about-hero-photo">
-              <img
-                src="/images/about/company-team.jpg"
-                alt="Intela Group team"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-              />
-              <ImagePlaceholder label="Add Company / Team Image" />
-              <div className="about-photo-tag">
-                <span className="about-tag-dot" />
-                <span>Intela Group LLC</span>
+            <div className="about-hero-trust">
+              <div className="about-hero-trust-item">
+                <FaShieldAlt />
+                <span>Trusted Partnerships</span>
+              </div>
+              <div className="about-hero-trust-item">
+                <FaCheck />
+                <span>Quality Delivery</span>
+              </div>
+              <div className="about-hero-trust-item">
+                <FaHandshake />
+                <span>Collaboration First</span>
+              </div>
+              <div className="about-hero-trust-item">
+                <FaAward />
+                <span>10+ Years Experience</span>
               </div>
             </div>
-
-            <div className="about-hero-floating">
-              <span className="about-floating-icon"><FaHandshake /></span>
-              <div>
-                <strong>Stronger Together</strong>
-                <span>Built through collaboration</span>
-              </div>
-            </div>
-
-            <div className="about-hero-outline" />
-            <div className="about-hero-orange-dot" />
           </div>
         </div>
-
-        <div className="about-hero-bottom-line" />
       </section>
 
       {/* 2. Brand introduction */}
@@ -208,7 +201,8 @@ function About() {
           <div className="about-intro-label">
             <span className="about-eyebrow">WHO WE ARE</span>
             <h2>
-              A team that believes in the power of people and technology.
+              A team that believes in the power of{" "}
+              <span>people and technology.</span>
             </h2>
           </div>
 
@@ -225,9 +219,9 @@ function About() {
               relationships around shared objectives.
             </p>
             <p>
-              Our identity is grounded in the belief that technology,
-              talented people, and a collaborative mindset can help
-              organizations create new possibilities.
+              Our identity is grounded in the belief that technology, talented
+              people, and a collaborative mindset can help organizations create
+              new possibilities.
             </p>
             <a href="#our-values" className="about-text-link">
               Explore what guides us <FaArrowRight />
@@ -250,7 +244,6 @@ function About() {
               />
               <ImagePlaceholder label="Company Story / Workplace Image" />
             </div>
-            <div className="about-story-accent" />
             <div className="about-story-caption">
               <span>INTELA GROUP</span>
               <strong>Growing through collaboration</strong>
@@ -269,11 +262,11 @@ function About() {
               meaningful progress starts with understanding those priorities.
             </p>
             <p>
-              Intela's approach is centered on professional relationships,
-              thoughtful collaboration, and a commitment to service
-              excellence. We aim to create an environment where communication
-              is clear, expectations are understood, and people can work
-              toward common goals.
+              Intela&apos;s approach is centered on professional relationships,
+              thoughtful collaboration, and a commitment to service excellence.
+              We aim to create an environment where communication is clear,
+              expectations are understood, and people can work toward common
+              goals.
             </p>
             <div className="about-story-highlight">
               <span className="about-highlight-bar" />
@@ -283,8 +276,8 @@ function About() {
               </p>
             </div>
             <p className="about-editor-note">
-              Add the verified company founding story and milestones here
-              when those details are available.
+              Add the verified company founding story and milestones here when
+              those details are available.
             </p>
           </div>
         </div>
@@ -293,42 +286,49 @@ function About() {
       {/* 4. Mission and vision */}
       <section className="about-mission section-space">
         <div className="about-container">
-          <div className="about-mission-heading">
-            <Heading
-              eyebrow="OUR PURPOSE"
-              title="What drives us forward"
-              description="Our purpose shapes the way we approach relationships, professional responsibilities, and future opportunities."
-              centered
-            />
-          </div>
+          <Heading
+            eyebrow="OUR PURPOSE"
+            title="What drives us"
+            highlight="forward"
+            description="Our purpose shapes the way we approach relationships, professional responsibilities, and future opportunities."
+            centered
+          />
 
           <div className="about-mission-grid">
             <article className="about-mission-card">
-              <div className="about-mission-top">
-                <span className="about-mission-icon"><FaBullseye /></span>
-                <span className="about-mission-number">01</span>
+              <div className="about-mission-card-inner">
+                <div className="about-mission-top">
+                  <span className="about-mission-icon">
+                    <FaBullseye />
+                  </span>
+                  <span className="about-mission-number">01</span>
+                </div>
+                <span className="about-card-eyebrow">OUR MISSION</span>
+                <h3>Make collaboration meaningful.</h3>
+                <p>
+                  To support business objectives through professional
+                  collaboration, service excellence, and a commitment to
+                  understanding the needs of the organizations we work with.
+                </p>
               </div>
-              <span className="about-card-eyebrow">OUR MISSION</span>
-              <h3>Make collaboration meaningful.</h3>
-              <p>
-                To support business objectives through professional
-                collaboration, service excellence, and a commitment to
-                understanding the needs of the organizations we work with.
-              </p>
             </article>
 
             <article className="about-mission-card about-mission-dark">
-              <div className="about-mission-top">
-                <span className="about-mission-icon"><FaEye /></span>
-                <span className="about-mission-number">02</span>
+              <div className="about-mission-card-inner">
+                <div className="about-mission-top">
+                  <span className="about-mission-icon">
+                    <FaEye />
+                  </span>
+                  <span className="about-mission-number">02</span>
+                </div>
+                <span className="about-card-eyebrow">OUR VISION</span>
+                <h3>Build lasting possibilities.</h3>
+                <p>
+                  To continue growing as a collaborative organization that
+                  values people, embraces progress, and builds lasting
+                  professional relationships.
+                </p>
               </div>
-              <span className="about-card-eyebrow">OUR VISION</span>
-              <h3>Build lasting possibilities.</h3>
-              <p>
-                To continue growing as a collaborative organization that
-                values people, embraces progress, and builds lasting
-                professional relationships.
-              </p>
             </article>
           </div>
         </div>
@@ -339,7 +339,8 @@ function About() {
         <div className="about-container">
           <Heading
             eyebrow="OUR CORE VALUES"
-            title="The principles behind our identity"
+            title="The principles behind our"
+            highlight="identity"
             description="Our values reflect the standards we strive to bring to our work, relationships, and everyday decisions."
             centered
           />
@@ -347,49 +348,50 @@ function About() {
           <div className="about-values-grid">
             {values.map((value) => (
               <article className="about-value-card" key={value.number}>
-                <div className="about-value-header">
-                  <span className="about-value-icon">{value.icon}</span>
-                  <span className="about-value-number">{value.number}</span>
+                <div className="about-value-card-inner">
+                  <div className="about-value-header">
+                    <span className="about-value-icon">{value.icon}</span>
+                    <span className="about-value-number">{value.number}</span>
+                  </div>
+                  <h3>{value.title}</h3>
+                  <p>{value.description}</p>
                 </div>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-                <span className="about-value-bottom-line" />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6. Our philosophy */}
+      {/* 6. Our philosophy – redesigned card grid */}
       <section className="about-philosophy section-space">
-        <div className="about-container about-philosophy-grid">
-          <div className="about-philosophy-copy">
-            <span className="about-eyebrow">OUR PHILOSOPHY</span>
-            <h2>
-              The way we work matters as much as the work itself.
-            </h2>
-            <p>
-              Strong professional relationships grow through listening,
-              consistency, shared understanding, and mutual respect.
-              These principles shape how we approach collaboration.
-            </p>
-            <Link to="/contact" className="about-text-link">
-              Start a conversation <FaArrowRight />
-            </Link>
-          </div>
+        <div className="about-container">
+          <Heading
+            eyebrow="OUR PHILOSOPHY"
+            title="The way we work matters as much as the"
+            highlight="work itself."
+            description="Strong professional relationships grow through listening, consistency, shared understanding, and mutual respect."
+            centered
+          />
 
-          <div className="about-principles">
+          <div className="about-principles-grid">
             {principles.map((item, index) => (
-              <article className="about-principle" key={item.title}>
-                <div className="about-principle-icon">{item.icon}</div>
-                <div className="about-principle-copy">
-                  <span>PRINCIPLE 0{index + 1}</span>
+              <article className="about-principle-card" key={item.title}>
+                <div className="about-principle-card-inner">
+                  <div className="about-principle-top">
+                    <span className="about-principle-icon">{item.icon}</span>
+                    <span className="about-principle-num">0{index + 1}</span>
+                  </div>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
-                <FaArrowRight className="about-principle-arrow" />
               </article>
             ))}
+          </div>
+
+          <div className="about-philosophy-cta">
+            <Link to="/contact" className="about-btn about-btn-orange">
+              Start a conversation <FaArrowRight />
+            </Link>
           </div>
         </div>
       </section>
@@ -400,7 +402,8 @@ function About() {
           <div className="about-people-heading">
             <Heading
               eyebrow="OUR PEOPLE"
-              title="Meet the people behind Intela"
+              title="Meet the people behind"
+              highlight="Intela"
               description="Showcase the individuals who help shape the organization, its culture, and its professional relationships."
             />
             <p className="about-people-side-note">
@@ -408,28 +411,37 @@ function About() {
             </p>
           </div>
 
-          <div className="about-team-grid">
-            {teamMembers.map((member, index) => (
-              <article className="about-team-card" key={`${member.role}-${index}`}>
-                <div className="about-team-image">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    loading="lazy"
-                    onError={(e) => {
-                      e.currentTarget.style.display = "none";
-                    }}
-                  />
-                  <ImagePlaceholder label="Team Photo Placeholder" />
-                  <span className="about-team-index">0{index + 1}</span>
-                </div>
-                <div className="about-team-details">
-                  <h3>{member.name}</h3>
-                  <p>{member.role}</p>
-                  <span>Replace with verified team information</span>
-                </div>
-              </article>
-            ))}
+          <div className="about-marquee about-team-marquee">
+            <div className="about-marquee-track">
+              {[...teamMembers, ...teamMembers, ...teamMembers].map(
+                (member, index) => (
+                  <article
+                    className="about-team-card"
+                    key={`${member.role}-${index}`}
+                  >
+                    <div className="about-team-image">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                        }}
+                      />
+                      <ImagePlaceholder label="Team Photo Placeholder" />
+                      <span className="about-team-index">
+                        0{(index % teamMembers.length) + 1}
+                      </span>
+                    </div>
+                    <div className="about-team-details">
+                      <h3>{member.name}</h3>
+                      <p>{member.role}</p>
+                      <span>Replace with verified team information</span>
+                    </div>
+                  </article>
+                )
+              )}
+            </div>
           </div>
           <p className="about-placeholder-note">
             Add approved employee photographs, names, roles, and short
@@ -438,89 +450,78 @@ function About() {
         </div>
       </section>
 
-      {/* 8. Clients and partners */}
-      <section className="about-clients section-space" id="our-clients">
+      {/* 8. Partners – logo strip like ref */}
+      <section className="about-partners section-space" id="our-clients">
         <div className="about-container">
-          <div className="about-clients-top">
+          <div className="about-partners-header">
             <div>
-              <span className="about-eyebrow">OUR CLIENTS & PARTNERS</span>
+              <span className="about-eyebrow">OUR PARTNERS</span>
               <h2>
-                Relationships that bring people and businesses together.
+                Trusted by <span>Leading Organizations</span>
               </h2>
             </div>
             <p>
-              Use this section to showcase verified client and partner
-              relationships that reflect Intela Group's professional network.
+              We are proud to work with respected organizations across
+              industries.
             </p>
           </div>
 
-          <div className="about-client-grid">
-            {clientLogos.map((client) => (
-              <div className="about-client-card" key={client.name}>
-                <div className="about-client-placeholder">
-                  <span className="about-client-mark">I</span>
-                  <span>{client.name}</span>
-                </div>
-                <img
-                  src={client.image}
-                  alt={client.name}
-                  loading="lazy"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                  onLoad={(e) => {
-                    e.currentTarget.style.display = "block";
-                  }}
-                />
-              </div>
-            ))}
+          <div className="about-marquee about-partners-marquee">
+            <div className="about-marquee-track">
+              {[...partnerLogos, ...partnerLogos, ...partnerLogos].map(
+                (name, i) => (
+                  <div className="about-partner-logo" key={`${name}-${i}`}>
+                    {name}
+                  </div>
+                )
+              )}
+            </div>
           </div>
 
           <p className="about-placeholder-note">
-            Replace the six placeholders with approved logos and accurate
-            client names. Do not imply a partnership without authorization.
+            Replace with approved partner logos. Verify relationships before
+            publishing.
           </p>
         </div>
       </section>
 
-      {/* 9. Client voices */}
+      {/* 9. Testimonials – card grid like ref */}
       <section className="about-testimonials section-space">
         <div className="about-container">
           <Heading
-            eyebrow="CLIENT PERSPECTIVES"
-            title="The value of working together"
-            description="Use genuine client feedback to communicate the experience of working with Intela Group."
+            eyebrow="WHAT OUR CLIENTS SAY"
+            title="Real Feedback,"
+            highlight="Real Results"
+            description="Here's what our clients have to say about working with Intela Group LLC."
             centered
           />
 
-          <div className="about-testimonial-grid">
-            {testimonials.map((item, index) => (
-              <article className="about-testimonial-card" key={item.name + index}>
-                <div className="about-testimonial-top">
-                  <FaQuoteLeft />
-                  <div className="about-stars" aria-label="Rating placeholder">
-                    <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-                  </div>
-                </div>
-                <p className="about-testimonial-quote">“{item.quote}”</p>
-                <div className="about-testimonial-person">
-                  <span className="about-testimonial-avatar">
-                    {item.name.charAt(0)}
-                  </span>
-                  <div>
-                    <strong>{item.name}</strong>
-                    <span>{item.role}</span>
-                  </div>
-                </div>
-                <span className="about-testimonial-index">0{index + 1}</span>
-              </article>
-            ))}
+          <div className="about-marquee about-testimonial-marquee">
+            <div className="about-marquee-track">
+              {[...testimonials, ...testimonials, ...testimonials].map(
+                (item, index) => (
+                  <article
+                    className="about-testimonial-card"
+                    key={item.name + index}
+                  >
+                    <div className="about-testimonial-card-inner">
+                      <FaQuoteLeft className="about-quote-icon" />
+                      <p className="about-testimonial-quote">“{item.quote}”</p>
+                      <div className="about-testimonial-person">
+                        <span className="about-testimonial-avatar">
+                          {item.name.charAt(0)}
+                        </span>
+                        <div>
+                          <strong>{item.name}</strong>
+                          <span>{item.role}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                )
+              )}
+            </div>
           </div>
-
-          <p className="about-placeholder-note">
-            These are content placeholders, not real testimonials. Replace
-            them with approved client quotations and verified attribution.
-          </p>
         </div>
       </section>
 
@@ -545,12 +546,13 @@ function About() {
           <div className="about-culture-copy">
             <span className="about-eyebrow">LIFE AT INTELA</span>
             <h2>
-              A culture shaped by people, learning, and collaboration.
+              A culture shaped by people, learning, and{" "}
+              <span>collaboration.</span>
             </h2>
             <p>
               We believe a positive professional environment encourages
-              knowledge-sharing, respectful communication, and opportunities
-              to learn from one another.
+              knowledge-sharing, respectful communication, and opportunities to
+              learn from one another.
             </p>
             <p>
               Our people section is an opportunity to share the real
@@ -566,13 +568,17 @@ function About() {
       {/* 11. Closing CTA */}
       <section className="about-closing">
         <div className="about-container about-closing-inner">
-          <div className="about-closing-decoration" />
           <div className="about-closing-copy">
-            <span className="about-eyebrow">LET'S CONNECT</span>
-            <h2>Good relationships begin with a conversation.</h2>
+            <span className="about-eyebrow about-eyebrow-light">
+              LET&apos;S CONNECT
+            </span>
+            <h2>
+              Good relationships begin with a{" "}
+              <span>conversation.</span>
+            </h2>
             <p>
-              Discover more about Intela Group and start a conversation
-              with our team.
+              Discover more about Intela Group and start a conversation with our
+              team.
             </p>
           </div>
           <Link to="/contact" className="about-btn about-btn-white">

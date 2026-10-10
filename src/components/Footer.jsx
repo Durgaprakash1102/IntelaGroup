@@ -13,7 +13,7 @@ function Footer() {
 
   const services = [
     "Professional Services",
-    "Staffing Solutions",
+    "Recruitment Solutions",
     "Application Development",
     "Application Maintenance",
     "Financial Services",
